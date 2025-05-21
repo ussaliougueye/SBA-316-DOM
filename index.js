@@ -1,4 +1,5 @@
 // Questions du quiz
+let choice = 5;
 const questions = [
     {
         question: "Quel mot-clé est utilisé pour déclarer une variable en JavaScript?",
@@ -106,15 +107,13 @@ header.appendChild(progression);
 
 
 const texteApresProgression = document.createElement("div");
-const score = document.createElement("h5");
-score.innerHTML = "Score:";
+const score = document.createElement("p");
+//score.innerHTML = "Score:";
 texteApresProgression.classList.add("scoreTemps");
-//score.classList.add("scoreTemps");
-const temps = document.createElement("h5");
-temps.textContent = "Temps:";
-//temps.classList.add("scoreTemps");
+
+
 texteApresProgression.appendChild(score);
-texteApresProgression.appendChild(temps);
+
 header.appendChild(texteApresProgression);
 //-------------------fin de la barre de navigation
 
@@ -122,6 +121,18 @@ header.appendChild(texteApresProgression);
 const main = document.createElement("div");
 main.classList.add("main");
 document.body.appendChild(main);
+
+
+// this function allows to verify if the answar is correct or not
+
+function verify(choie){
+    if(choie === questions[indice].answer){
+        return true;
+    }
+    return false;
+}
+
+
 
 // cette fonction affiche la question en cours dans la page html
 function questionEnCours(indice){
@@ -131,19 +142,47 @@ function questionEnCours(indice){
     main.appendChild(cQuestion);
     //choie1
     const choie1 = document.createElement("p");
+    
+    choie1.addEventListener("click", () => {
+        choice = 0;
+        choie1.style.backgroundColor = "rgb(182, 124, 124)";
+        choie3.style.backgroundColor = "rgb(228, 225, 225)";
+        choie2.style.backgroundColor = "rgb(228, 225, 225)";
+        choie4.style.backgroundColor = "rgb(228, 225, 225)";
+        
+    });
     choie1.classList.add("choie");
-    //choie1.value = 
+    
     choie1.innerText = questions[indice].options[0];
     main.appendChild(choie1);
     //choie2
     const choie2 = document.createElement("p");
+    
+    choie2.addEventListener("click", () => {
+        choice = 1;
+        choie2.style.backgroundColor = "rgb(182, 124, 124)";
+        choie3.style.backgroundColor = "rgb(228, 225, 225)";
+        choie4.style.backgroundColor = "rgb(228, 225, 225)";
+        choie1.style.backgroundColor = "rgb(228, 225, 225)";
+        
+    });
     choie2.classList.add("choie");
-    //choie2.value = ;
+    //choice = ;
     choie2.innerText = questions[indice].options[1];
     main.appendChild(choie2);
 
     //choie3
     const choie3 = document.createElement("p");
+    
+    choie3.addEventListener("click", () => {
+        choice = 2;
+        choie3.style.backgroundColor = "rgb(182, 124, 124)";
+        choie4.style.backgroundColor = "rgb(228, 225, 225)";
+        choie2.style.backgroundColor = "rgb(228, 225, 225)";
+        choie1.style.backgroundColor = "rgb(228, 225, 225)";
+        
+        
+    });
     choie3.classList.add("choie");
     //choie3.value =
     choie3.innerText = questions[indice].options[2];
@@ -151,6 +190,15 @@ function questionEnCours(indice){
 
     //choie4
     const choie4 = document.createElement("p");
+    
+    choie4.addEventListener("click", () => {
+        choice = 3;
+        choie4.style.backgroundColor = "rgb(182, 124, 124)";
+        choie3.style.backgroundColor = "rgb(228, 225, 225)";
+        choie2.style.backgroundColor = "rgb(228, 225, 225)";
+        choie1.style.backgroundColor = "rgb(228, 225, 225)";
+        
+    });
     choie4.classList.add("choie");
     //choie4.value = ;
     choie4.innerText = questions[indice].options[3];
@@ -160,19 +208,35 @@ function questionEnCours(indice){
 
     const btnContainer = document.createElement("div");
     btnContainer.classList.add("containerBtn");
-    const bouttonPrecedant = document.createElement("input");
-    bouttonPrecedant.type = "button";
-    bouttonPrecedant.classList.add("btn");
-    bouttonPrecedant.value = "Precedant"
-    const bouttonSuivant = document.createElement("input");
-    bouttonSuivant.classList.add("btn");
-    bouttonSuivant.value = "Suivant";
-
-    btnContainer.appendChild(bouttonPrecedant);
-    btnContainer.appendChild(bouttonSuivant);
+    const bouttonSoumettre = document.createElement("input");
+    bouttonSoumettre.type = "button";
+    bouttonSoumettre.classList.add("btn");
+    bouttonSoumettre.value = "Soumettre"
+    btnContainer.appendChild(bouttonSoumettre);
+    //btnContainer.appendChild(bouttonSuivant);
     main.appendChild(btnContainer);
+
+    bouttonSoumettre.addEventListener("click", ()=>{
+        if(choice===5){
+            score.innerHTML = "veillez faire un choix:";
+        }else{
+            if(choice === questions[indice].answer){
+                score.innerHTML = "Vrai";
+                
+            }
+            else{
+                score.innerHTML = "la reponse doit etre :"+ questions[indice].answer + " mais vous aves selectionner: "+ choice;
+            }
+        }
+    });
+    
 }
 
-questionEnCours(8);
+
+
+
+
+
+questionEnCours(0);
 
 

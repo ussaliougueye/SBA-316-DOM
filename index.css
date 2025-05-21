@@ -44,11 +44,12 @@ p[class="choie"]:hover {
     margin-left: 56%;
 } */
 .btn{
-    color: blue;
+    color: rgb(98, 99, 100);
     border-radius: 40px;
     border: 10px none red;
     background-color: azure;
     text-align: center;
+    width: 120px;
 }
 .btn:hover{
     background-color: rgb(207, 207, 207);

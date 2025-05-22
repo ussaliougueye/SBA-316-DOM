@@ -232,11 +232,25 @@ function questionEnCours(indice){
     
 }
 
+function demarrage(){
+    const menuDemarre = document.createDocumentFragment("div");
+    
+    
+    const text = document.createDocumentFragment("h4");
+    text.textContent = "Star the Quiz!";
+    menuDemarre.appendChild(text);
+    main.appendChild(menuDemarre);
+    text.addEventListener("click", ()=>{
+        menuDemarre.remove();
+        questionEnCours(0);
+    });
+    
+}
 
 
 
 
-
-questionEnCours(0);
+demarrage();
+//questionEnCours(0);
 
 

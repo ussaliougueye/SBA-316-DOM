@@ -2,84 +2,37 @@
 let choice = 5;
 const questions = [
     {
-        question: "Quel mot-clé est utilisé pour déclarer une variable en JavaScript?",
+        question: "What keyword is used to declare a variable in JavaScript?",
         options: ["var", "let", "const", "Toutes ces réponses"],
         answer: 3,
-        explanation: "En JavaScript moderne, vous pouvez utiliser var, let ou const pour déclarer des variables, chacun avec ses particularités."
+
     },
     {
-        question: "Quelle méthode permet d'ajouter un élément à la fin d'un tableau?",
+        question: "Which method adds an element to the end of an array?",
         options: ["push()", "pop()", "shift()", "unshift()"],
         answer: 0,
-        explanation: "La méthode push() ajoute un ou plusieurs éléments à la fin d'un tableau et retourne la nouvelle longueur du tableau."
     },
     {
-        question: "Quel opérateur permet de vérifier l'égalité stricte (valeur et type)?",
+        question: "Which operator allows you to check strict equality (value and type)?",
         options: ["==", "===", "=", "!="],
         answer: 1,
-        explanation: "L'opérateur === vérifie à la fois la valeur et le type, alors que == effectue une conversion de type avant la comparaison."
+
     },
     {
-        question: "Qu'est-ce qu'une fonction fléchée (arrow function) en JavaScript?",
+        question: "What is an arrow function in JavaScript?",
         options: [
-            "Une fonction anonyme",
-            "Une fonction avec une syntaxe raccourcie qui ne possède pas son propre this",
-            "Une fonction qui retourne toujours une valeur",
-            "Une fonction qui ne peut pas prendre de paramètres"
+            "An anonymous function",
+            "A function with shorthand syntax that does not have its own this",
+            "A function that always returns a value",
+            "A function that cannot take parameters"
         ],
         answer: 1,
-        explanation: "Les fonctions fléchées ont une syntaxe concise et n'ont pas leur propre this, arguments, super ou new.target."
+
     },
     {
-        question: "Quelle méthode transforme un objet JavaScript en chaîne JSON?",
+        question: "Which method transforms a JavaScript object into a JSON string?",
         options: ["parse()", "stringify()", "toJSON()", "serialize()"],
         answer: 1,
-        explanation: "JSON.stringify() convertit une valeur JavaScript en chaîne JSON, tandis que JSON.parse() fait l'inverse."
-    },
-    {
-        question: "Qu'est-ce que le 'hoisting' en JavaScript?",
-        options: [
-            "Le déplacement des déclarations en haut de leur scope avant l'exécution",
-            "Une méthode pour optimiser les performances",
-            "Un type de boucle",
-            "Une fonction intégrée"
-        ],
-        answer: 0,
-        explanation: "Le hoisting est un comportement de JavaScript où les déclarations de variables et de fonctions sont déplacées en haut de leur scope avant l'exécution du code."
-    },
-    {
-        question: "Quelle méthode permet d'appeler une fonction après un délai spécifié?",
-        options: ["setInterval()", "setTimeout()", "wait()", "delay()"],
-        answer: 1,
-        explanation: "setTimeout() exécute une fonction ou un morceau de code après qu'un délai spécifié se soit écoulé."
-    },
-    {
-        question: "Qu'est-ce qu'une promesse (Promise) en JavaScript?",
-        options: [
-            "Un objet représentant l'achèvement ou l'échec d'une opération asynchrone",
-            "Une fonction qui retourne immédiatement une valeur",
-            "Une déclaration conditionnelle",
-            "Un type de boucle"
-        ],
-        answer: 0,
-        explanation: "Une Promise est un objet qui représente la complétion ou l'échec éventuel d'une opération asynchrone et sa valeur résultante."
-    },
-    {
-        question: "Quelle méthode permet de cloner superficiellement un objet en JavaScript?",
-        options: [
-            "Object.clone()",
-            "Object.assign()",
-            "Object.copy()",
-            "Object.create()"
-        ],
-        answer: 1,
-        explanation: "Object.assign() est utilisé pour copier les valeurs de toutes les propriétés propres énumérables d'un ou plusieurs objets sources vers un objet cible."
-    },
-    {
-        question: "Quelle méthode de tableau crée un nouveau tableau avec les résultats de l'appel d'une fonction sur chaque élément?",
-        options: ["forEach()", "filter()", "map()", "reduce()"],
-        answer: 2,
-        explanation: "map() crée un nouveau tableau avec les résultats de l'appel d'une fonction fournie sur chaque élément du tableau appelant."
     }
 ];
 
@@ -221,7 +174,8 @@ function questionEnCours(indice){
             score.innerHTML = "veillez faire un choix:";
         }else{
             if(choice === questions[indice].answer){
-                score.innerHTML = "Vrai";
+                main.textContent = ""
+                score.innerHTML = "Great job. Reload the page to restart";
                 
             }
             else{
@@ -235,11 +189,13 @@ function questionEnCours(indice){
 function demarrage(){
     const menuDemarre = document.createDocumentFragment("div");
     
-    const text = document.createElement("h1");
-    text.textContent = "Star the Quiz!";
+    const text = document.createElement("p");
+    text.style.textAlign =  "center";
+    
+    text.textContent = "Click to star the Quiz!";
     text.addEventListener("click", ()=>{
         text.remove();
-        questionEnCours(Math.floor(Math.random() * 10));
+        questionEnCours(Math.floor(Math.random() * 5));
         
         
     });

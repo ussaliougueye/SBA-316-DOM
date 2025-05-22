@@ -225,7 +225,7 @@ function questionEnCours(indice){
                 
             }
             else{
-                score.innerHTML = "la reponse doit etre :"+ questions[indice].answer + " mais vous aves selectionner: "+ choice;
+                score.innerHTML = "Wrong! Try again."
             }
         }
     });
@@ -235,15 +235,16 @@ function questionEnCours(indice){
 function demarrage(){
     const menuDemarre = document.createDocumentFragment("div");
     
-    
-    const text = document.createDocumentFragment("h4");
+    const text = document.createElement("h1");
     text.textContent = "Star the Quiz!";
+    text.addEventListener("click", ()=>{
+        text.remove();
+        questionEnCours(Math.floor(Math.random() * 10));
+        
+        
+    });
     menuDemarre.appendChild(text);
     main.appendChild(menuDemarre);
-    text.addEventListener("click", ()=>{
-        menuDemarre.remove();
-        questionEnCours(0);
-    });
     
 }
 

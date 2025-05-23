@@ -188,7 +188,7 @@ function questionEnCours(indice){
 
 function demarrage(){
     const menuDemarre = document.createDocumentFragment("div");
-    
+    const p = document.querySelector('#footer');
     const text = document.createElement("p");
     text.style.textAlign =  "center";
     
@@ -203,11 +203,9 @@ function demarrage(){
     main.appendChild(menuDemarre);
     
 }
-
-
-
-
 demarrage();
+
+//(document.querySelector('#footer'));
 //questionEnCours(0);
 
 

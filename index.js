@@ -3,7 +3,7 @@ let choice = 5;
 const questions = [
     {
         question: "What keyword is used to declare a variable in JavaScript?",
-        options: ["var", "let", "const", "Toutes ces réponses"],
+        options: ["var", "let", "const", "All the above"],
         answer: 3,
 
     },
@@ -171,7 +171,7 @@ function questionEnCours(indice){
 
     bouttonSoumettre.addEventListener("click", ()=>{
         if(choice===5){
-            score.innerHTML = "veillez faire un choix:";
+            score.innerHTML = "Please make a choice:";
         }else{
             if(choice === questions[indice].answer){
                 main.textContent = ""
@@ -192,7 +192,7 @@ function demarrage(){
     const text = document.createElement("p");
     text.style.textAlign =  "center";
     
-    text.textContent = "Click to star the Quiz!";
+    text.textContent = "Click here to star the Quiz!";
     text.addEventListener("click", ()=>{
         text.remove();
         questionEnCours(Math.floor(Math.random() * 5));
